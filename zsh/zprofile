@@ -1,0 +1,73 @@
+# Colored manpages
+function man() {
+	env \
+		LESS_TERMCAP_md=$(tput bold; tput setaf 4) \
+		LESS_TERMCAP_me=$(tput sgr0) \
+		LESS_TERMCAP_mb=$(tput blink) \
+		LESS_TERMCAP_us=$(tput setaf 2) \
+		LESS_TERMCAP_ue=$(tput sgr0) \
+		LESS_TERMCAP_so=$(tput smso) \
+		LESS_TERMCAP_se=$(tput rmso) \
+		PAGER="${commands[nvim -R]:-$PAGER}" \
+	man "$@"
+}
+
+
+## Aliases
+alias g="git"
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias vimdiff='nvim -d'
+alias r='ranger'
+alias netrw='nvim -c Explore'
+alias cal='cal -m'
+alias date='date +"%Y %a, %d %b, %H:%M"'
+alias ls='lsd --color=auto'
+alias l='ls -F'
+alias ll='ls -lAhF'
+alias lls='ls -lAhFtr'
+alias lsl='ls -l'
+alias la='ls -FA'
+alias grep="grep --color=auto"
+alias ..="cd ../"
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias -g C='| wc -l'
+alias -g G='| grep'
+alias -g L='| less'
+alias -g M='| more'
+alias -g S='&> /dev/null'
+alias -g XC='| xclip -selection c'
+alias shutdown='sudo shutdown now'
+alias luamake=/home/x/.config/nvim/lua-language-server/3rd/luamake/luamake
+# Simple directory relocation
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+# Source zsh dotfiles
+function reload() {
+	if [[ -d $ZDOTDIR ]]
+	source $ZPROFILE
+	source $ZSHENV
+	source $ZSH
+	source $PROFILE
+}
+
+function config() {
+	if [[ -d $ZDOTDIR ]]
+	nvim -p $ZDOTDIR/{zshrc,zprofile}
+}
+
+# move lesshst file to designated directory
+if [[ -e $HOME/.lesshst ]]
+then 
+	mv $HOME/.lesshst $HOME/.cache/history/less/ 2>/dev/null
+fi
+
+# move zcompdump file to designated directory
+if [[ -e $HOME/.zcompdump ]]
+then 
+	mv $HOME/.zcompdump $HOME/.cache/history/zsh/ 2>/dev/null
+fi
+
