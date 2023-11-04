@@ -91,6 +91,7 @@ export KEYTIMEOUT=15 # yes.. for following keybinds to work
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kk' vi-cmd-mode
+bindkey -M viins 'kj' vi-cmd-mode
 # ---------------------------------------------
 
 	## Edit line in vim with ctrl-e:

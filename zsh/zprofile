@@ -15,12 +15,11 @@ function man() {
 
 ## Aliases
 alias g="git"
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
-alias vimdiff='nvim -d'
-alias r='ranger'
-alias netrw='nvim -c Explore'
+alias v='/usr/bin/nvim'
+alias vi='/usr/bin/nvim'
+alias vim='/usr/bin/nvim'
+alias vimdiff='/usr/bin/nvim -d'
+alias ex='nvim -c Explore'
 alias cal='cal -m'
 alias date='date +"%Y %a, %d %b, %H:%M"'
 alias ls='exa --icons'
