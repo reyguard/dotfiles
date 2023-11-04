@@ -42,6 +42,17 @@ zstyle ':completion:*' use-perl true
 zstyle :compinstall filename '$HOME/.config/zsh/zshrc'
 	_comp_options+=(globdots)	# Include hidden files.
 
+# ---------------------------------------------
+# Ctrl-w - delete a full WORD (including colon, dot, comma, quotes...)
+my-backward-kill-word () {
+# Add colon, comma, single/double quotes to word chars
+   local WORDCHARS=''
+   zle -f kill # Append to the kill ring on subsequent kills.
+   zle backward-kill-word
+}
+zle -N my-backward-kill-word
+bindkey '^w' my-backward-kill-word
+
 # End of lines added by compinstall
 # ---------------------------------------------
 
@@ -73,7 +84,7 @@ zmodload -i zsh/complist
 	## Vi-mode
 # ---------------------------------------------
 bindkey -v
-export KEYTIMEOUT=15 # yes..
+export KEYTIMEOUT=15 # yes.. for following keybinds to work
 # ---------------------------------------------
 	## Normal/Escape-mode
 # ---------------------------------------------
@@ -116,7 +127,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 	# Plugin - load syntax-highlighting last
 # ---------------------------------------------
 fpath=(/usr/share/zsh/plugins/zsh-completions/src $fpath)
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 # ---------------------------------------------
 

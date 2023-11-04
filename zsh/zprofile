@@ -23,12 +23,7 @@ alias r='ranger'
 alias netrw='nvim -c Explore'
 alias cal='cal -m'
 alias date='date +"%Y %a, %d %b, %H:%M"'
-alias ls='lsd --color=auto'
-alias l='ls -F'
-alias ll='ls -lAhF'
-alias lls='ls -lAhFtr'
-alias lsl='ls -l'
-alias la='ls -FA'
+alias ls='exa --icons'
 alias grep="grep --color=auto"
 alias ..="cd ../"
 alias ...="cd ../.."
@@ -40,7 +35,7 @@ alias -g M='| more'
 alias -g S='&> /dev/null'
 alias -g XC='| xclip -selection c'
 alias shutdown='sudo shutdown now'
-alias luamake=/home/x/.config/nvim/lua-language-server/3rd/luamake/luamake
+alias luamake=${HOME}/.config/nvim/lua-language-server/3rd/luamake/luamake
 # Simple directory relocation
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
@@ -48,10 +43,9 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 # Source zsh dotfiles
 function reload() {
 	if [[ -d $ZDOTDIR ]]
-	source $ZPROFILE
-	source $ZSHENV
-	source $ZSH
-	source $PROFILE
+	. $ZDOTDIR/zprofile
+	. ${HOME}/.zshenv
+	. $ZDOTDIR/zshrc
 }
 
 function config() {
