@@ -1,15 +1,15 @@
 # Colored manpages
 function man() {
-	env \
-		LESS_TERMCAP_md=$(tput bold; tput setaf 4) \
-		LESS_TERMCAP_me=$(tput sgr0) \
-		LESS_TERMCAP_mb=$(tput blink) \
-		LESS_TERMCAP_us=$(tput setaf 2) \
-		LESS_TERMCAP_ue=$(tput sgr0) \
-		LESS_TERMCAP_so=$(tput smso) \
-		LESS_TERMCAP_se=$(tput rmso) \
-		PAGER="${commands[nvim -R]:-$PAGER}" \
-	man "$@"
+    env \
+        LESS_TERMCAP_md=$(tput bold; tput setaf 4) \
+	LESS_TERMCAP_me=$(tput sgr0) \
+	LESS_TERMCAP_mb=$(tput blink) \
+	LESS_TERMCAP_us=$(tput setaf 2) \
+	LESS_TERMCAP_ue=$(tput sgr0) \
+	LESS_TERMCAP_so=$(tput smso) \
+	LESS_TERMCAP_se=$(tput rmso) \
+	PAGER="${commands[nvim -R]:-$PAGER}" \
+    man "$@"
 }
 
 
@@ -33,7 +33,6 @@ alias -g G='| grep'
 alias -g L='| less'
 alias -g M='| more'
 alias -g S='&> /dev/null'
-alias -g XC='| xclip -selection c'
 alias shutdown='sudo shutdown now'
 alias luamake=${HOME}/.config/nvim/lua-language-server/3rd/luamake/luamake
 # Simple directory relocation
@@ -50,7 +49,7 @@ function reload() {
 
 function config() {
 	if [[ -d $ZDOTDIR ]]
-	nvim -p $ZDOTDIR/{zshrc,zprofile}
+	nvim -p $ZDOTDIR/{.zshrc,.zprofile,.zshenv}
 }
 
 # move lesshst file to designated directory
@@ -60,8 +59,7 @@ then
 fi
 
 # move zcompdump file to designated directory
-if [[ -e $HOME/.zcompdump ]]
-then 
+if [[ -e $HOME/.zcompdump ]]; then 
 	mv $HOME/.zcompdump $HOME/.cache/history/zsh/ 2>/dev/null
 fi
 

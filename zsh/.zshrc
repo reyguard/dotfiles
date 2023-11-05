@@ -39,7 +39,7 @@ zstyle ':completion:*:man:*' menu yes select
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*:manuals' separate-sections true
 zstyle ':completion:*' use-perl true
-zstyle :compinstall filename '$HOME/.config/zsh/zshrc'
+zstyle :compinstall filename '$HOME/.config/dotfiles/zsh/.zshrc'
 	_comp_options+=(globdots)	# Include hidden files.
 
 # ---------------------------------------------
@@ -57,6 +57,7 @@ bindkey '^w' my-backward-kill-word
 # ---------------------------------------------
 
 	## [Shift-Tab] - move through the completion menu backwards 
+# ---------------------------------------------
 if [[ "${terminfo[kcbt]}" != "" ]]; then
 	bindkey "${terminfo[kcbt]}" reverse-menu-complete
 fi 
@@ -131,4 +132,3 @@ fpath=(/usr/share/zsh/plugins/zsh-completions/src $fpath)
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 # ---------------------------------------------
-
