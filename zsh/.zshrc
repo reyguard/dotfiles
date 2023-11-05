@@ -78,6 +78,7 @@ zstyle ':completion:*:kill:*'   force-list always
 # ---------------------------------------------
 autoload -Uz compinit
 compinit -u
+compinit -d $ZDOTDIR/zcompdump
 zmodload -i zsh/complist
 # ---------------------------------------------
 
