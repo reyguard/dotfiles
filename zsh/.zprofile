@@ -42,9 +42,9 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 # Source zsh dotfiles
 function reload() {
 	if [[ -d $ZDOTDIR ]]
-	. $ZDOTDIR/zprofile
+	. $ZDOTDIR/.zprofile
 	. ${HOME}/.zshenv
-	. $ZDOTDIR/zshrc
+	. $ZDOTDIR/.zshrc
 }
 
 function config() {
