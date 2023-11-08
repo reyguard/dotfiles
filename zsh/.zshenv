@@ -8,4 +8,4 @@ fi
 
 export EDITOR="/usr/bin/nvim"
 export BROWSER="/mnt/c/Program Files/Firefox Developer Edition/firefox.exe"
-test -f $HOME/.cargo/anv && . $HOME/.cargo/env
+test -f $HOME/.cargo/env && . $HOME/.cargo/env
