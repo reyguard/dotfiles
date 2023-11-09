@@ -8,6 +8,8 @@ alias ex='nvim -c Explore'
 alias cal='cal -m'
 alias date='date +"%Y %a, %d %b, %H:%M"'
 alias ls='exa --icons'
+alias l='ls --git -l -@'
+alias ll='ls --git -l -a -@'
 alias grep="grep --color=auto"
 alias ..="cd ../"
 alias ...="cd ../.."
