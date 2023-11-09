@@ -14,31 +14,6 @@ function man() {
 
 
 ## Aliases
-alias t="tmux attach || tmux new"
-alias g="git"
-alias v='/usr/bin/nvim'
-alias vi='/usr/bin/nvim'
-alias vim='/usr/bin/nvim'
-alias vimdiff='/usr/bin/nvim -d'
-alias ex='nvim -c Explore'
-alias cal='cal -m'
-alias date='date +"%Y %a, %d %b, %H:%M"'
-alias ls='exa --icons'
-alias grep="grep --color=auto"
-alias ..="cd ../"
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias -g C='| wc -l'
-alias -g G='| grep'
-alias -g L='| less'
-alias -g M='| more'
-alias -g S='&> /dev/null'
-alias shutdown='sudo shutdown now'
-alias luamake=${HOME}/.config/nvim/lua-language-server/3rd/luamake/luamake
-# Simple directory relocation
-alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
-
 # Source zsh dotfiles
 function reload() {
 	if [[ -d $ZDOTDIR ]]
@@ -59,7 +34,6 @@ then
 fi
 
 # move zcompdump file to designated directory
-if [[ -e $HOME/.zcompdump ]]; then 
+if [[ -e $ZDOTDIR/.zcompdump ]]; then 
 	mv $HOME/.zcompdump $HOME/.cache/history/zsh/ 2>/dev/null
 fi
-
