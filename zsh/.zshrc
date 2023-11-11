@@ -106,7 +106,7 @@ bindkey '^e' edit-command-line
 # ---------------------------------------------
 bindkey "^r" history-incremental-search-backward
 # ---------------------------------------------
-
+:'
 	## PROMPT
 # ---------------------------------------------
 terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
@@ -121,6 +121,7 @@ local usr="%{$fg[white]%}%n%{$fg[green]%}@%{$fg[white]%}%M%{$reset_color%}"
 preexec () { print -rn -- $terminfo[el]; }
 zle -N zle-line-init
 zle -N zle-keymap-select
+'
 
 	## colored GCC warnings and errors
 # ---------------------------------------------
@@ -133,3 +134,5 @@ fpath=(/usr/share/zsh/plugins/zsh-completions/src $fpath)
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 # ---------------------------------------------
+
+eval "$(starship init zsh)"
