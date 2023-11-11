@@ -106,22 +106,22 @@ bindkey '^e' edit-command-line
 # ---------------------------------------------
 bindkey "^r" history-incremental-search-backward
 # ---------------------------------------------
-:'
-	## PROMPT
-# ---------------------------------------------
-terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
-function zle-line-init zle-keymap-select {
-# would want date above PS1
-local usr="%{$fg[white]%}%n%{$fg[green]%}@%{$fg[white]%}%M%{$reset_color%}"
 
-    PS1_2="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-	PS1="%{$terminfo_down_sc$PS1_2$terminfo[rc]%}$usr in %~ on $(git_super_status) %# "
-    zle reset-prompt
-}
-preexec () { print -rn -- $terminfo[el]; }
-zle -N zle-line-init
-zle -N zle-keymap-select
-'
+#	## PROMPT
+## ---------------------------------------------
+#terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
+#function zle-line-init zle-keymap-select {
+## would want date above PS1
+#local usr="%{$fg[white]%}%n%{$fg[green]%}@%{$fg[white]%}%M%{$reset_color%}"
+#
+#    PS1_2="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+#	PS1="%{$terminfo_down_sc$PS1_2$terminfo[rc]%}$usr in %~ on $(git_super_status) %# "
+#    zle reset-prompt
+#}
+#preexec () { print -rn -- $terminfo[el]; }
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+
 
 	## colored GCC warnings and errors
 # ---------------------------------------------
