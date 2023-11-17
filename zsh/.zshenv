@@ -8,4 +8,7 @@ fi
 
 export EDITOR="/usr/bin/nvim"
 export BROWSER="/mnt/c/Program Files/Firefox Developer Edition/firefox.exe"
+export PAGER="/usr/bin/less"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 test -f $HOME/.cargo/env && . $HOME/.cargo/env
